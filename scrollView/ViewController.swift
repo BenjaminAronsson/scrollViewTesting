@@ -19,8 +19,7 @@ class ViewController: UIViewController {
         //skapar view
         let bar = UIView(frame: rect2)
         bar.backgroundColor = UIColor.blue
-        //add view
-        self.view.addSubview(bar)
+        
         
         //skapar frame
         let rect = CGRect(x: 100, y: 100, width: 100, height: 100)
@@ -37,6 +36,7 @@ class ViewController: UIViewController {
         
         //skapa scrollview
         let scrollView = UIScrollView(frame: view.bounds)
+        //scrollView.autoresizingMask = UIviewauto
         scrollView.backgroundColor = UIColor.green
         
         var offset : CGFloat = 0
@@ -53,8 +53,11 @@ class ViewController: UIViewController {
         //enable scroll
         scrollView.contentSize = CGSize(width: view.bounds.size.width, height: offset)
         
+        //add subview
         view.addSubview(scrollView)
         
+        //add view
+        self.view.addSubview(bar)
         
         
         

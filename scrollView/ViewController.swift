@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var pageController: UIPageControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -64,7 +65,19 @@ class ViewController: UIViewController {
         
         
     }
+}
 
-
+//scrollview delegate
+extension ViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let cordinateX = scrollView.contentOffset.x
+        
+        let page = Int(round(cordinateX / self.view.frame.width))
+        
+        if page < pageController.numberOfPages {
+            pageController.currentPage = page
+        }
+    }
 }
 
